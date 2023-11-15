@@ -60,6 +60,10 @@ public class Main {
                 array = new int[] {};
                 break;
 
+            // Extreme Value Array
+            case 9:
+                array = new int[] {Integer.MAX_VALUE, Integer.MIN_VALUE};
+
             default:
                 System.out.println("Not a test!");
                 break;
@@ -72,5 +76,10 @@ public class Main {
     public static int[] distinctArray(int[] array) {
         int[] distinctArray = Arrays.stream(array).distinct().toArray();
         return distinctArray;
+    }
+
+    public static int[] filterArray (int[] array) {
+        array = Arrays.stream(array).filter(x -> x > 5).toArray();
+        return array;
     }
 }
