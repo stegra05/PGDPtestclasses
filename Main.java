@@ -3,18 +3,21 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        // switch value to test other tasks
-        int testTask = 1;
-        int[] array;
-        int[][] twoDArray;
-        String[] stringArray;
+        // switch 'testTask' value to test other tasks
+        int testTask = 7;
+        int[] array = new int[0];
+        int[][] twoDArray = new int[0][];
+        String[] stringArray = new String[0];
+
+
         switch (testTask) {
 
-            // Simple Array
+            // 1D Arrays
+            // Empty Array
             case 1:
-                array = new int[] {1, 2, 3};
-                System.out.println("Array input: " + Arrays.toString(array));
+                array = new int[] {};
                 break;
+
 
             // Array with reoccuring numbers
             case 2:
@@ -31,12 +34,14 @@ public class Main {
                 System.out.println("Array input: [0;99]");
                 break;
 
-            // 2D Array with 2 Arrays
+            // Simple Array
             case 4:
-                twoDArray = new int[][] {{1, 3, 5}, {2, 4, 6, 7}};
-                System.out.println("Array input: " + Arrays.deepToString(twoDArray));
+                array = new int[] {1, 2, 3};
+                System.out.println("Array input: " + Arrays.toString(array));
                 break;
 
+
+            // 2D Arrays
             // 2D Array with multiple Arrays
             case 5:
                 twoDArray = new int[][] {{1, 4, 6}, {2}, {342, 12}};
@@ -55,9 +60,10 @@ public class Main {
                 System.out.println("Array input: " + Arrays.toString(stringArray));
                 break;
 
-            // Empty Array
+            // 2D Array with 2 subarrays
             case 8:
-                array = new int[] {};
+                twoDArray = new int[][] {{1, 3, 5}, {2, 4, 6, 7}};
+                System.out.println("Array input: " + Arrays.deepToString(twoDArray));
                 break;
 
             // Extreme Value Array
@@ -69,17 +75,37 @@ public class Main {
                 break;
         }
 
-
+        // Enter method to test below
+        System.out.println(stringArray);
     }
 
     // Get distinct elements from Array
     public static int[] distinctArray(int[] array) {
-        int[] distinctArray = Arrays.stream(array).distinct().toArray();
-        return distinctArray;
+        return Arrays.stream(array).distinct().toArray();
     }
 
+    // filters array, specified by input to the right of '->'
     public static int[] filterArray (int[] array) {
-        array = Arrays.stream(array).filter(x -> x > 5).toArray();
-        return array;
+        return Arrays.stream(array).filter(x -> x < 2).toArray();
     }
-}
+
+    // Copies array and changes length
+    public static int[] copyDefineSize (int[] array) {
+        return Arrays.copyOf(array, array.length + 5);
+    }
+
+    // Copies array from (inclusive) to (exclusive)
+    public static int[] copyRange (int[] array) {
+        return Arrays.copyOfRange(array, 2, array.length);
+    }
+
+    // Sorts array
+    public static int[] sortArray (int[] array) {
+        return Arrays.stream(array).sorted().toArray();
+    }
+
+    // Adds each element of Array
+    public static int sumArray (int[] array) {
+        return Arrays.stream(array).sum();
+    }
+ }
